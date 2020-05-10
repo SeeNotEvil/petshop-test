@@ -41,8 +41,8 @@ class GetRankingSortCommand extends Command
     }
 
     /**
-     * @throws \SeeNotEvil\RankingSport\Exception\ConnectionException
-     * @throws \SeeNotEvil\RankingSport\Exception\InvalidResponseException
+     * @throws ConnectionException
+     * @throws InvalidResponseException
      */
     public function execute(InputInterface $input, OutputInterface $output)
     {

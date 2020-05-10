@@ -85,12 +85,19 @@ class EndpointClientTest extends TestCase
         $this->expectException(InvalidResponseException::class);
         $this->expectExceptionMessage("Parse json error with code");
 
-        $response = new Response(404, [], "-");
+        $result = "-";
+
+        $response = new Response(404, [], $result);
 
         $this->clientHttp
             ->expects($this->once())
             ->method("request")
             ->willReturn($response);
+
+        $this->parser->expects($this->once())
+            ->method("parse")
+            ->with($result)
+            ->willThrowException(new InvalidResponseException("Parse json error with code"));
 
         $this->endpointClient->getTeamList("http://test");
     }

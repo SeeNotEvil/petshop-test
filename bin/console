@@ -1,10 +1,12 @@
 #!/usr/bin/env php
 <?php
-// application.php
+
+use SeeNotEvil\App\GetRankingSortCommand;
 
 require __DIR__.'/vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 
 $application = new Application();
+$application->add(new GetRankingSortCommand());
 $application->run();
