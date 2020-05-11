@@ -21,7 +21,7 @@
     "autoload": {
         "psr-4": {
             "SeeNotEvil\\RankingSport\\": "src",
-            "SeeNotEvil\\App\\": "public"
+            "SeeNotEvil\\App\\": "app"
         }
     }
 }
