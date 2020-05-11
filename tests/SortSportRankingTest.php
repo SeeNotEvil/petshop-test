@@ -21,6 +21,7 @@ class SortSportRankingTest extends TestCase
     {
         $teams = [
             ["team" => "team1", "scores" => 44],
+            ["team" => "team4", "scores" => 22],
             ["team" => "team2", "scores" => 44],
             ["team" => "team3", "scores" => 88],
         ];
@@ -29,6 +30,7 @@ class SortSportRankingTest extends TestCase
             ["rank" => 1, "team" => "team3", "scores" => 88],
             ["rank" => 2, "team" => "team1", "scores" => 44],
             ["rank" => 2, "team" => "team2", "scores" => 44],
+            ["rank" => 4, "team" => "team4", "scores" => 22],
         ];
 
         $actual = ($this->sortSportRanking)($teams);
