@@ -1,12 +1,13 @@
 <?php
 
-namespace SeeNotEvil\App;
+namespace SeeNotEvil\App\Command;
 
 use GuzzleHttp\Client;
 use SeeNotEvil\RankingSport\Client\EndpointHttp;
 use SeeNotEvil\RankingSport\Client\JsonParser;
 use SeeNotEvil\RankingSport\Sort\SportRankingSort;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use SeeNotEvil\RankingSport\Exception\ConnectionException;
@@ -38,6 +39,8 @@ class GetRankingSortCommand extends Command
         $this
             ->setDescription('Get ranking sort by endpoint')
             ->setHelp('Command...');
+
+        $this->addArgument("url", InputArgument::REQUIRED, 'Url for endpoint');
     }
 
     /**
@@ -47,7 +50,7 @@ class GetRankingSortCommand extends Command
     public function execute(InputInterface $input, OutputInterface $output)
     {
         $teamList = $this->client->getTeamList($input->getArgument('url'));
-
-        return json_encode($this->sort->sort($teamList), true);
+        $output->write(json_encode(($this->sort)($teamList), true));
+        return 0;
     }
 }

@@ -38,14 +38,14 @@ class EndpointClientTest extends TestCase
     public function testGetTeamList()
     {
         $expected = [
-            ["team" => "Axiom", "score" => 99],
-            ["team" => "BnL", "score" => 89]
+            ["team" => "Axiom", "scores" => 99],
+            ["team" => "BnL", "scores" => 89]
         ];
 
         $result = <<<JSON
                 [
-                  {"team": "Axiom", "score": 99},
-                  {"team": "BnL", "score": 89}
+                  {"team": "Axiom", "scores": 99},
+                  {"team": "BnL", "scores": 89}
                 ]
                 JSON;
 

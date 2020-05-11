@@ -17,7 +17,7 @@ class SportRankingSort implements RankingSortInterface
 
         $previousTeam = null;
         foreach ($teams as $index => $team) {
-            $rank = $previousTeam && $previousTeam['score'] == $team['score'] ? $previousTeam['rank'] : ++$index;
+            $rank = $previousTeam && $previousTeam['scores'] === $team['scores'] ? $previousTeam['rank'] : ++$index;
             $teamsRanks[] = $previousTeam = array_merge(['rank' => $rank], $team);
         }
 
@@ -27,7 +27,7 @@ class SportRankingSort implements RankingSortInterface
     private function sortTeamsByScore(array $teams): array
     {
         usort($teams, function (array $team, array $team2) {
-            return $team['score'] <=> $team2['score'];
+            return $team2['scores'] <=> $team['scores'];
         });
 
         return $teams;
