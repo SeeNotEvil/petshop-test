@@ -37,6 +37,6 @@ class EndpointHttp implements EndpointClientInterface
         } catch (GuzzleException $exception) {
             throw new ConnectionException("Connection error", 0, $exception);
         }
-        return $this->parser->parse($result->getBody()->getContents());
+        return ($this->parser)($result->getBody()->getContents());
     }
 }

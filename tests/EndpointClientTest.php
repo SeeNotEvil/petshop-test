@@ -57,7 +57,7 @@ class EndpointClientTest extends TestCase
             ->willReturn($response);
 
         $this->parser->expects($this->once())
-            ->method("parse")
+            ->method("__invoke")
             ->with($result)
             ->willReturn($expected);
 
@@ -95,7 +95,7 @@ class EndpointClientTest extends TestCase
             ->willReturn($response);
 
         $this->parser->expects($this->once())
-            ->method("parse")
+            ->method("__invoke")
             ->with($result)
             ->willThrowException(new InvalidResponseException("Parse json error with code"));
 

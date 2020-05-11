@@ -10,7 +10,7 @@ class JsonParser implements ParserContentInterface
     /**
      * @throws InvalidResponseException
      */
-    public function parse(string $content): array
+    public function __invoke(string $content): array
     {
         $result = json_decode($content, true);
 

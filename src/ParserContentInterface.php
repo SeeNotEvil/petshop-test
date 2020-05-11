@@ -4,5 +4,5 @@ namespace SeeNotEvil\RankingSport;
 
 interface ParserContentInterface
 {
-    public function parse(string $content): array;
+    public function __invoke(string $content): array;
 }
